@@ -1,8 +1,37 @@
 import { Link } from "react-router-dom";
+import { useRef, useState } from "react";
+import { useStateContext } from "../contexts/ContextProvider";
+import AxiosClient from "../AxiosClient";
 
 export default function Signup() {
+  const usernameRef = useRef();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const passwordConfirmationRef = useRef();
+  const [errors, setErrors] = useState(null);
+
+  const { setUser, setToken } = useStateContext();
+
   const onSubmit = e => {
     e.preventDefault();
+
+    const payload = {
+      name: usernameRef.current.value,
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+      password_confirmation: passwordConfirmationRef.current.value
+    };
+    AxiosClient.post('/signup', payload)
+      .then(({ data }) => {
+        setUser(data.user)
+        setToken(data.token);
+      })
+      .catch(err => {
+        const response = err.response;
+        if (response?.status === 422) {
+          setErrors(response.data.errors);
+        }
+      });
   };
   
   return (
@@ -12,10 +41,17 @@ export default function Signup() {
           <h1 className="title">
             Sign up 
           </h1>
-          <input placeholder="Username" type="text"/>
-          <input placeholder="Email" type="email"/>
-          <input placeholder="Password" type="password"/>
-          <input placeholder="Confirm password" type="password" />
+          { errors && 
+            <div className="alert">
+              { Object.keys(errors).map(key => {
+                return <p key={ key }>{ errors[key][0] }</p>;
+              })}
+            </div>
+          }
+          <input ref={ usernameRef } placeholder="Username" type="text"/>
+          <input ref={ emailRef } placeholder="Email" type="email"/>
+          <input ref={ passwordRef } placeholder="Password" type="password"/>
+          <input ref={ passwordConfirmationRef } placeholder="Confirm password" type="password" />
           <button className="btn btn-block" type="submit">Signup</button>
           <p className="message">
             Already registered? <Link to="/login">Sign in</Link>

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
 import { useStateContext } from "../contexts/ContextProvider";
 import AxiosClient from "../AxiosClient";
+import ErrorMessage from "../components/ErrorMessage";
 
 export default function Signup() {
   const usernameRef = useRef();
@@ -41,13 +42,7 @@ export default function Signup() {
           <h1 className="title">
             Sign up 
           </h1>
-          { errors && 
-            <div className="alert">
-              { Object.keys(errors).map(key => {
-                return <p key={ key }>{ errors[key][0] }</p>;
-              })}
-            </div>
-          }
+          <ErrorMessage errors={ errors } />
           <input ref={ usernameRef } placeholder="Username" type="text"/>
           <input ref={ emailRef } placeholder="Email" type="email"/>
           <input ref={ passwordRef } placeholder="Password" type="password"/>

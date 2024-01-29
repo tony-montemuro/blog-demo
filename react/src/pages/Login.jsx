@@ -1,8 +1,39 @@
+import { useRef, useState } from "react";
+import { useStateContext } from "../contexts/ContextProvider";
 import { Link } from "react-router-dom";
+import AxiosClient from "../AxiosClient";
+import ErrorMessage from "../components/ErrorMessage";
 
 export default function Login() {
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const [errors, setErrors] = useState(null);
+  const { setUser, setToken } = useStateContext();
+
   const onSubmit = e => {
     e.preventDefault();
+    setErrors(null);
+
+    const payload = {
+      email: emailRef.current.value,
+      password: passwordRef.current.value
+    };
+    AxiosClient.post('/login', payload)
+      .then(({ data }) => {
+        setUser(data.user)
+        setToken(data.token);
+        console.log("WHATTTT");
+      })
+      .catch(err => {
+        const response = err.response;
+        if (response?.status === 422) {
+          if (response.data.errors) {
+            setErrors(response.data.errors);
+          } else {
+            setErrors({ e: [response.data.message] });
+          }          
+        }
+      });
   };
   
   return (
@@ -12,8 +43,9 @@ export default function Login() {
           <h1 className="title">
             Login to your account
           </h1>
-          <input placeholder="Email" type="email"/>
-          <input placeholder="Password" type="password"/>
+          <ErrorMessage errors={ errors } />
+          <input ref={ emailRef } placeholder="Email" type="email"/>
+          <input ref={ passwordRef } placeholder="Password" type="password"/>
           <button className="btn btn-block" type="submit">Login</button>
           <p className="message">
             Not registered? <Link to="/signup">Create an account</Link>

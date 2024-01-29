@@ -3,7 +3,7 @@
 * {
     box-sizing: border-box;
 }
-html, body, #root, #defaultLayout, #guestLayout {
+html, body, #root, #layout, #guestLayout {
     min-height: 100vh;
 }
 
@@ -178,17 +178,17 @@ table > tbody > tr > td {
 /* Login/Signup form */
 
 
-#defaultLayout {
+#layout {
     display: flex;
 }
 
-#defaultLayout aside {
+#layout aside {
     width: 240px;
     background-color: #5b08a7;
     padding: 1rem
 }
 
-#defaultLayout aside > a {
+#layout aside > a {
     display: block;
     padding: 0.75rem 1rem;
     border-radius: 6px;
@@ -197,15 +197,15 @@ table > tbody > tr > td {
     transition: all 0.2s;
 }
 
-#defaultLayout aside > a:hover {
+#layout aside > a:hover {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-#defaultLayout .content {
+#layout .content {
     flex: 1;
 }
 
-#defaultLayout header {
+#layout header {
     height: 80px;
     padding: 2rem 3rem;
     background-color: white;
@@ -215,7 +215,7 @@ table > tbody > tr > td {
     align-items: center;
 }
 
-#defaultLayout main {
+#layout main {
     padding: 2rem;
 }
 

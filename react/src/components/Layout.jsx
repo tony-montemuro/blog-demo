@@ -4,7 +4,7 @@ import { useStateContext } from "../contexts/ContextProvider";
 import AxiosClient from "../AxiosClient";
 
 export default function Layout() {
-  const { user, setUser, token, setToken } = useStateContext();
+  const { user, setUser, token, setToken, message } = useStateContext();
   if (!token) {
     return <Navigate to="/login" />
   }
@@ -46,6 +46,13 @@ export default function Layout() {
           <Outlet />
         </main>
       </div>
+
+      { message &&
+        <div className="notification">
+          { message }
+        </div>
+      }
+      
     </div>
   );
 };

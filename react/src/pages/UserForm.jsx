@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import AxiosClient from "../AxiosClient";
 import ErrorMessage from "../components/ErrorMessage";
+import { useStateContext } from "../contexts/ContextProvider";
 
 export default function UserForm() {
   const { id } = useParams();
@@ -16,19 +17,22 @@ export default function UserForm() {
   });
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState(null);
+  const { setMessage } = useStateContext();
 
   const onSubmit = e => {
     e.preventDefault();
-    let query;
+    let query, msg;
     if (user.id) {
       query = AxiosClient.put(`/users/${ user.id }`, user);
+      msg = "User was successfully updated!";
     } else {
       query = AxiosClient.post("/users", user);
+      msg = "User was successfully created!";
     }
 
     query
       .then(() => {
-        // TODO: show notification
+        setMessage(msg)
         navigateTo("/users");
       })
       .catch(error => {

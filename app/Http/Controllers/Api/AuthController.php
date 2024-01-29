@@ -40,7 +40,7 @@ class AuthController extends Controller
         return response(compact("user", "token"));
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
         /** @var User $user */
         $user = $request->user();

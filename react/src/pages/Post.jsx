@@ -18,9 +18,9 @@ export default function Post() {
 
   const onSubmit = e => {
     e.preventDefault();
+    setErrors(null);
 
     const payload = { ...form, user_id: user.id };
-    console.log(payload);
     AxiosClient.post('/blog', payload)
       .then(() => {
         setMessage("Post successfully uploaded!");
@@ -36,7 +36,7 @@ export default function Post() {
   };
 
   return (
-    <div className="login-signup-form animated fadeInDown">
+    <div className="post-form animated fadeInDown">
       <div className="form">
         <form onSubmit={ onSubmit }>
           <h1 className="title">
@@ -48,14 +48,14 @@ export default function Post() {
             id="title" 
             placeholder="Title" 
             type="text" 
-            max="100"
+            required
           />
           <textarea 
             onChange={ onChange }
             id="content"
             placeholder="Write your post here..."
             rows="25"
-            max="5000"
+            required
           ></textarea>
           <button className="btn btn-block" type="submit">Upload Post</button>
         </form>

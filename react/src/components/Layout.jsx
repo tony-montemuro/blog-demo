@@ -30,9 +30,9 @@ export default function Layout() {
     <div id="layout">
       <div className="content">
         <header>
-          <div>
-          <Link to="/blogs">Beautiful Blogs</Link>
-          </div>
+          <Link to="/blogs">
+            <strong>Beautiful Blogs</strong>
+          </Link>
           <div>
             { user.name }&nbsp;&nbsp;
             <a href="#" onClick={onLogout} className="btn-logout">Logout</a>

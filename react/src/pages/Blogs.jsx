@@ -42,9 +42,12 @@ export default function Blogs() {
   }, []);
 
   return (
-    <div>
+    <div id="blogs">
       <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
-        <h1>Blogs</h1>
+        <div id="blogs-title">
+          <h1>Blogs</h1>
+          <p>Create and view markdown blogs!</p>
+        </div>
         <Link to="/blogs/new" className="btn-add">Upload blog</Link>
       </div>
       <div className="card animated fadeInDown">

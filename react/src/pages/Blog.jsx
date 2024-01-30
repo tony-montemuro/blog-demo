@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import AxiosClient from "../AxiosClient";
+import Markdown from "react-markdown";
 
 export default function Blog() {
   const [loading, setLoading] = useState(true);
@@ -28,11 +29,11 @@ export default function Blog() {
         <div className="text-center">Loading...</div>
       :
         <>
-          <h1>{ blog.title }</h1>
+          <h1 id="post-title">{ blog.title }</h1>
           <span>By { blog.user.name }</span>
           <hr />
           <div>
-            { blog.content }
+            <Markdown>{ blog.content }</Markdown>
           </div>
         </>
       }

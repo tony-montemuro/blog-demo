@@ -30,7 +30,7 @@ export default function Post() {
         const response = error.response;
         if ([403, 422].includes(response?.status)) {
           setErrors(response.data.errors);
-          console.log(errors);
+          console.error(errors);
         }
       });
   };
@@ -53,7 +53,7 @@ export default function Post() {
           <textarea 
             onChange={ onChange }
             id="content"
-            placeholder="Write your post here..."
+            placeholder="Write your markdown post here..."
             rows="25"
             required
           ></textarea>

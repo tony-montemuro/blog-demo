@@ -13,7 +13,6 @@ export default function Blog() {
     AxiosClient.get(`/blog/${id}`)
       .then(({ data }) => {
         setBlog(data);
-        console.log(data);
       })
       .catch(error => {
         console.error(error);

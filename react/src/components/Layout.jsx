@@ -31,7 +31,7 @@ export default function Layout() {
       <div className="content">
         <header>
           <Link to="/blogs">
-            <strong>Beautiful Blogs</strong>
+            <strong>Markdown Blogs</strong>
           </Link>
           <div>
             { user.name }&nbsp;&nbsp;

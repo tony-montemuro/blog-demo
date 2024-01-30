@@ -69,20 +69,26 @@ export default function Blogs() {
             </tbody>
           :
             <tbody>
-              { blogs.map(blog => {
-                return (
-                  <tr key={ blog.id } onClick={() => navigate(`/blogs/${ blog.id }`)}>
-                    <td>{ blog.title }</td>
-                    <td>{ blog.user.name }</td>
-                    <td>{ blog.created_at }</td>
-                    <td>
-                      { user?.id === blog.user.id &&
-                        <button onClick={ (e) => onDelete(e, blog.id) } className="btn-delete">Delete</button>
-                      }
-                    </td>
-                  </tr>
-                );
-              })}
+              { blogs.length > 0 ?
+                blogs.map(blog => {
+                  return (
+                    <tr id="row" key={ blog.id } onClick={() => navigate(`/blogs/${ blog.id }`)}>
+                      <td>{ blog.title }</td>
+                      <td>{ blog.user.name }</td>
+                      <td>{ blog.created_at }</td>
+                      <td>
+                        { user?.id === blog.user.id &&
+                          <button onClick={ (e) => onDelete(e, blog.id) } className="btn-delete">Delete</button>
+                        }
+                      </td>
+                    </tr>
+                  );
+                })
+              :
+                <tr>
+                  <td colSpan={ 4 } className="text-center"><em>No blogs exist.</em></td>
+                </tr>
+              }
             </tbody>
           }
 

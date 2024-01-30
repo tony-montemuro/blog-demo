@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\UserResource;
+use Illuminate\Support\Facades\Log;
 
 class BlogResource extends JsonResource
 {
@@ -17,10 +18,10 @@ class BlogResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            "created_at" => $this->created_at->format("Y-m-d H:i:s"),
+            "created_at" => $this->created_at,
+            "id" => $this->id,
             "title" => $this->title,
-            "text" => $this->text,
-            "user" => new UserResource($this->whenLoaded("user"))
+            "user" => new UserResource($this->user)
         ];
     }
 }

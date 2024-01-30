@@ -1,4 +1,5 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
+import Blogs from "./pages/Blogs";
 import Dashboard from "./components/Dashboard";
 import GuestLayout from "./components/GuestLayout";
 import Layout from "./components/Layout";
@@ -33,6 +34,10 @@ const Router = createBrowserRouter([
       {
         path: "/users/:id",
         element: <UserForm key="userUpdate" />
+      },
+      {
+        path: "/blogs",
+        element: <Blogs />
       },
       {
         path: "/blogs/new",

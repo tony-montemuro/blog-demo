@@ -31,11 +31,12 @@ export default function Layout() {
       <aside>
         <Link to="/dashboard">Dashboard</Link>
         <Link to="/users">Users</Link>
+        <Link to="/blogs">Blogs</Link>
       </aside>
       <div className="content">
         <header>
           <div>
-            Header
+            Beautiful Blogs
           </div>
           <div>
             { user.name }

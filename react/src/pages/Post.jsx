@@ -2,8 +2,10 @@ import { useState } from "react";
 import AxiosClient from "../AxiosClient";
 import { useStateContext } from "../contexts/ContextProvider";
 import ErrorMessage from "../components/ErrorMessage";
+import { useNavigate } from "react-router-dom";
 
 export default function Post() {
+  const navigateTo = useNavigate();
   const { user, setMessage } = useStateContext();
   const [form, setForm] = useState({
     title: "",
@@ -24,7 +26,7 @@ export default function Post() {
     AxiosClient.post('/blog', payload)
       .then(() => {
         setMessage("Post successfully uploaded!");
-        navigateTo("/users");
+        navigateTo("/");
       })
       .catch(error => {
         const response = error.response;

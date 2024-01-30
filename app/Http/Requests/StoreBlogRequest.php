@@ -23,8 +23,8 @@ class StoreBlogRequest extends FormRequest
     {
         return [
             "title" => 'required|string|max:100',
-            "email" => 'required|string',
-            "user_id" => 'required|exists:users,id|in:' . auth()->id()
+            "content" => 'required|string',
+            "user_id" => 'required|exists:users,id'
         ];
     }
 }

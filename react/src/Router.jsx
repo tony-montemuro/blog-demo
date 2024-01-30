@@ -4,6 +4,7 @@ import GuestLayout from "./components/GuestLayout";
 import Layout from "./components/Layout";
 import Login from "./pages/Login";
 import Missing from "./pages/Missing";
+import Post from "./pages/Post";
 import Signup from "./pages/Signup";
 import UserForm from "./pages/UserForm";
 import Users from "./pages/Users";
@@ -33,6 +34,10 @@ const Router = createBrowserRouter([
         path: "/users/:id",
         element: <UserForm key="userUpdate" />
       },
+      {
+        path: "/blogs/new",
+        element: <Post />
+      }
     ]
   },
   {

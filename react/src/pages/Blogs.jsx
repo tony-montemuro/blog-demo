@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import AxiosClient from "../AxiosClient";
 
 export default function Blogs() {
+  const navigate = useNavigate();
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(false);
   const TABLE_WIDTH = 3;
@@ -11,7 +12,6 @@ export default function Blogs() {
     setLoading(true);
     AxiosClient.get("/blog")
       .then(({ data }) => {
-        console.log(data.data);
         setBlogs(data.data);
       })
       .catch(error => {
@@ -48,7 +48,7 @@ export default function Blogs() {
             <tbody>
               { blogs.map(blog => {
                 return (
-                  <tr key={ blog.id }>
+                  <tr key={ blog.id } onClick={() => navigate(`/blogs/${ blog.id }`)}>
                     <td>{ blog.title }</td>
                     <td>{ blog.user.name }</td>
                     <td>{ blog.created_at }</td>

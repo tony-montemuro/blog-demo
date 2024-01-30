@@ -9,6 +9,7 @@ import Post from "./pages/Post";
 import Signup from "./pages/Signup";
 import UserForm from "./pages/UserForm";
 import Users from "./pages/Users";
+import Blog from "./pages/Blog";
 
 const Router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const Router = createBrowserRouter([
       {
         path: "/blogs/new",
         element: <Post />
+      },
+      {
+        path: "/blogs/:id",
+        element: <Blog />
       }
     ]
   },

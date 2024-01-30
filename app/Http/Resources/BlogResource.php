@@ -5,7 +5,6 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\UserResource;
-use Illuminate\Support\Facades\Log;
 
 class BlogResource extends JsonResource
 {
@@ -20,6 +19,7 @@ class BlogResource extends JsonResource
         return [
             "created_at" => $this->created_at,
             "id" => $this->id,
+            "content" => $this->content,
             "title" => $this->title,
             "user" => new UserResource($this->user)
         ];

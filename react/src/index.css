@@ -182,7 +182,7 @@ table > tbody > tr > td {
     display: flex;
 }
 
-#layout aside {
+/* #layout aside {
     width: 240px;
     background-color: #5b08a7;
     padding: 1rem
@@ -199,7 +199,7 @@ table > tbody > tr > td {
 
 #layout aside > a:hover {
     background-color: rgba(0, 0, 0, 0.2);
-}
+} */
 
 #layout .content {
     flex: 1;
@@ -208,12 +208,29 @@ table > tbody > tr > td {
 #layout header {
     height: 80px;
     padding: 2rem 3rem;
-    background-color: white;
+    background-color: #5b08a7;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: white;
 }
+
+#layout header a {
+    color: white;
+    padding: 0.5rem 0.75rem;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+#layout header a:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* #layout header > a:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+} */
 
 #layout main {
     padding: 2rem;

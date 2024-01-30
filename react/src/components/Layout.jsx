@@ -28,18 +28,13 @@ export default function Layout() {
 
   return (
     <div id="layout">
-      <aside>
-        <Link to="/dashboard">Dashboard</Link>
-        <Link to="/users">Users</Link>
-        <Link to="/blogs">Blogs</Link>
-      </aside>
       <div className="content">
         <header>
           <div>
-            Beautiful Blogs
+          <Link to="/blogs">Beautiful Blogs</Link>
           </div>
           <div>
-            { user.name }
+            { user.name }&nbsp;&nbsp;
             <a href="#" onClick={onLogout} className="btn-logout">Logout</a>
           </div>
         </header>

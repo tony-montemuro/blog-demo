@@ -26,7 +26,6 @@ class BlogController extends Controller
     public function store(StoreBlogRequest $request)
     {
         $data = $request->validated();
-        Log::info(auth('sanctum')->user()->id);
         if ($data['user_id'] !== auth('sanctum')->user()->id) {
             return response(['errors' => array('err' => ['You are not authorized to upload this blog.'])], 403);
         }
@@ -47,7 +46,7 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        if ($this->user()->id !== $blog->user_id) {
+        if ($blog->user_id !== auth('sanctum')->user()->id) {
             return response(['error' => 'You are not authorized to delete this blog.'], 403);
         }
         $blog->delete();

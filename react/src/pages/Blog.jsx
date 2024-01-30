@@ -4,7 +4,6 @@ import AxiosClient from "../AxiosClient";
 
 export default function Blog() {
   const [loading, setLoading] = useState(true);
-  const [errors, setErrors] = useState(null);
   const [blog, setBlog] = useState(null);
   const { id } = useParams();
 
@@ -16,7 +15,7 @@ export default function Blog() {
         console.log(data);
       })
       .catch(error => {
-        setErrors(error);
+        console.error(error);
       })
       .finally(() => {
         setLoading(false);

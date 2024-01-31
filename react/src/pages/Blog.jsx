@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import AxiosClient from "../AxiosClient";
 import Markdown from "react-markdown";
+import timeAgo from "../utils/timeAgo";
 
 export default function Blog() {
   const [loading, setLoading] = useState(true);
@@ -29,7 +30,7 @@ export default function Blog() {
       :
         <>
           <h1 id="post-title">{ blog.title }</h1>
-          <span>By { blog.user.name }</span>
+          <span>By { blog.user.name } | { timeAgo(blog.created_at) }</span>
           <hr />
           <div>
             <Markdown>{ blog.content }</Markdown>

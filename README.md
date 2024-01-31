@@ -1,66 +1,136 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Markdown Blog Demo
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This was a fun web application I decided to build as preparation for a job interview. I want to learn PHP, as well as practice my React, so I decided that building a Laravel + React application was the best approach.
 
-## About Laravel
+While I have about two years of experience writing React applications, PHP is a brand new experience for me, so forgive me for any questionable code. Overall, though, PHP pleasantly surprised me! In particular, Laravel was a great experience: great docs, fairly straightforward to setup and run.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+I have always wanted a personal blog, so perhaps in the future I can use this code as a reference.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## About this Application
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+This application does not have too many bells and whistles, as it was mostly just created so that I could get familiar with Laravel and PHP: the React part was mostly just for practice.
 
-## Learning Laravel
+**DISCLAIMER:** I used [this video tutorial](https://youtu.be/qJq9ZMB2Was) to get setup. Some of the React code, and most of the CSS, *is not my own!* However, I would say most of everything else is my own work.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### User Authentication
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+This application requires user's to sign up to view and post blogs:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**Login Screen:**
+![Login Screen](https://i.imgur.com/TfbOb9h.png)
 
-## Laravel Sponsors
+**Signup Screen:**
+![Signup Screen](https://i.imgur.com/IgRqNhc.png)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+User authentication is surprisingly straightforward in Laravel. Who would have thought?
 
-### Premium Partners
+### Blogs
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Once you have logged in, you will gain access to the blogs. Immediately, you load onto this page:
 
-## Contributing
+**Home Page:**
+![Home Page](https://i.imgur.com/OFmVHCu.png)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+As you can see, this page renders a few things:
 
-## Code of Conduct
+- Simple navigation bar
+- A list of blogs to select from and open
+- Buttons to create new blogs, and delete blogs belonging to the authenticated user
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+When you select a blog, you are able to see the contents of the blog in a new window.
 
-## Security Vulnerabilities
+**Blog Page:**
+![Blog Page](https://i.imgur.com/qNaqn6L.png)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+If, instead, you opt to create a blog post by selecting the `Upload Blog` button, you arrive at a window to write your markdown blog. 
 
-## License
+**Create Post Page:**
+![Create Post Page](https://i.imgur.com/PhkNKro.png)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Overall, I am relatively happy with this as a demo! Eventually, I will have to setup a personal blog.
+
+## Running Locally
+
+In order to run this application locally, you will need to setup development servers for both the frontend and backend.
+
+Before you can get started, you will need to clone the repository to your machine. Navigate to your working directory, and run this command:
+
+```bash
+git clone https://github.com/tony-montemuro/blog-demo.git
+```
+
+Once this has finished, run:
+
+```bash
+cd blog-demo
+```
+
+### Backend Server Setup
+
+**Note:** Before you begin, you must have the following software installed:
+
+- [PHP](https://www.php.net/downloads.php)
+- [Composer](https://getcomposer.org/download/)
+- [SQLite](https://www.sqlite.org/download.html)
+
+Begin at the root of the project directory. Once you have installed this software, begin:
+
+1. Install dependencies, by running:
+
+```bash
+composer install
+```
+
+2. Next, setup your `.env` file, by running:
+
+```bash
+cp .env.example .env
+```
+
+3. Generate your Laravel application key, by running:
+
+```bash
+php artisan key:generate
+```
+
+4. Finally, begin your backend developer server, by running:
+
+```bash
+php artisan serve
+```
+
+The application should be accessible at `http://localhost:8000`.
+
+### Frontend Server Setup
+
+**Note:** Before you begin, you must have the following software installed:
+
+- [Node.js](https://nodejs.org/en)
+
+Begin at the root of the project directory. Once you have installed this software, begin:
+
+1. Navigate to the client directory by running:
+
+```bash
+cd react
+```
+
+2. The application code is dependent on a number of `npm` packages. To install them, run:
+
+```
+npm i
+```
+
+3. Next, setup your `.env` file, by running:
+
+```bash
+cp .env.example .env
+```
+
+4. Finally, begin your frontend developer server, by running:
+
+```bash
+npm run dev
+```
+
+The application should be accessible at `http://localhost:3000`.

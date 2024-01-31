@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
+:root {
+    --color-black: #212121;
+    --color-primary: #3F00FF;
+    --color-white: white;
+    --color-grey-s: rgba(0, 0, 0, 0.05);
+    --color-grey-m: rgba(0, 0, 0, 0.1);
+    --color-grey-l: rgba(0, 0, 0, 0.2);
+    --color-border: #efefef;
+    --color-red: #b72424;
+    --color-green: #00a762;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -16,14 +28,14 @@ body {
     margin: 0;
     padding: 0;
     font-size: 14px;
-    color: #212121;
+    color: var(--color-black);
     background-color: #f6f6f6;
 }
 
 input, textarea {
     font-family: 'Open Sans', sans-serif;
     outline: 0;
-    background: #ffffff;
+    background: var(--color-white);
     width: 100%;
     border: 2px solid #e6e6e6;
     margin: 0 0 15px;
@@ -34,7 +46,7 @@ input, textarea {
 }
 
 input:focus, textarea:focus {
-    border-color: #5b08a7;
+    border-color: var(--color-primary);
 }
 
 .btn,
@@ -42,11 +54,11 @@ input:focus, textarea:focus {
 .btn-delete {
     font-family: "Roboto", sans-serif;
     outline: 0;
-    background: #5b08a7;
+    background: var(--color-primary);
     border: 0;
     text-decoration: none;
     padding: 15px;
-    color: #FFFFFF;
+    color: var(--color-white);
     font-size: 16px;
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
@@ -64,27 +76,27 @@ input:focus, textarea:focus {
     border-radius: 4px;
 }
 .btn-add {
-    background-color: #00a762;
+    background-color: var(--color-green);
 }
 .btn-delete {
-    background-color: #b72424;
+    background-color: var(--color-red);
 }
 
 .btn-logout {
     text-decoration: none;
     padding: 0.75rem 1.5rem;
-    color: #212121;
+    color: var(--color-black);
     transition: all 0.3s;
     border-radius: 6px;
 }
 .btn-logout:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: var(--color-grey-m);
 }
 
 .btn:hover,
 .btn:active,
 .btn:focus {
-    background: #5b08a7;
+    background: var(--color-primary);
 }
 
 .text-center {
@@ -100,12 +112,12 @@ table {
 table > thead > tr > th {
     text-align: left;
     padding: 0.5rem 0.5rem;
-    background-color: #efefef;
+    background-color: var(--color-border);
 }
 
 table > tbody > tr > td {
     padding: 0.5rem 0.5rem;
-    border-bottom: 1px solid #efefef;
+    border-bottom: 1px solid var(--color-border);
     white-space: nowrap;
 }
 
@@ -114,7 +126,7 @@ table > tbody > tr {
 }
 
 table > tbody > #row:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: var(--color-grey-s);
 }
 
 table > tbody >#row > td:hover {
@@ -126,9 +138,9 @@ hr {
 }
 
 .card {
-    background-color: #FFF;
+    background-color: var(--color-white);
     border-radius: 0.5rem;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 3px var(--color-grey-m);
     padding: 1.25rem 1.5rem;
     margin-bottom: 1rem;
     margin-top: 0.5rem;
@@ -136,8 +148,8 @@ hr {
 
 .alert {
     padding: 1rem;
-    background-color: #ff4040;
-    color: white;
+    background-color: var(--color-red);
+    color: var(--color-white);
     border-radius: 0.5rem;
     margin-bottom: 1rem;
 }
@@ -148,8 +160,8 @@ hr {
     bottom: 1rem;
     z-index: 100;
     padding: 1rem 1.5rem;
-    background-color: #00a762;
-    color: white;
+    background-color: var(--color-green);
+    color: var(--color-white);
     border-radius: 0.5rem;
 }
 
@@ -172,10 +184,10 @@ hr {
     width: 360px;
     position: relative;
     z-index: 1;
-    background: #FFFFFF;
+    background: var(--color-white);
     max-width: 360px;
     padding: 34px;
-    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 2px 0 var(--color-grey-m);
 }
 
 .login-signup-form .title {
@@ -192,7 +204,7 @@ hr {
 }
 
 .login-signup-form .form .message a {
-    color: #5b08a7;
+    color: var(--color-primary);
     text-decoration: none;
 }
 
@@ -207,9 +219,9 @@ hr {
     width: 100%;
     position: relative;
     z-index: 1;
-    background: #FFFFFF;
+    background: var(--color-white);
     padding: 34px;
-    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 2px 0 var(--color-grey-m);
 }
 
 .post-form .title {
@@ -232,16 +244,16 @@ hr {
 #layout header {
     height: 80px;
     padding: 2rem;
-    background-color: #5b08a7;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    background-color: var(--color-primary);
+    box-shadow: 1px 1px 2px var(--color-grey-l);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: white;
+    color: var(--color-white);
 }
 
 #layout header a {
-    color: white;
+    color: var(--color-white);
     padding: 0.5rem 0.75rem;
     text-decoration: none;
     border-radius: 6px;
@@ -249,7 +261,7 @@ hr {
 }
 
 #layout header a:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: var(--color-grey-l);
 }
 
 #layout main {

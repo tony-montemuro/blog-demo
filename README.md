@@ -77,27 +77,27 @@ Begin at the root of the project directory. Once you have installed this softwar
 
 1. Install dependencies, by running:
 
-```bash
-composer install
-```
+    ```bash
+    composer install
+    ```
 
 2. Next, setup your `.env` file, by running:
 
-```bash
-cp .env.example .env
-```
+    ```bash
+    cp .env.example .env
+    ```
 
 3. Generate your Laravel application key, by running:
 
-```bash
-php artisan key:generate
-```
+    ```bash
+    php artisan key:generate
+    ```
 
 4. Finally, begin your backend developer server, by running:
 
-```bash
-php artisan serve
-```
+    ```bash
+    php artisan serve
+    ```
 
 The application should be accessible at `http://localhost:8000`.
 
@@ -111,26 +111,26 @@ Begin at the root of the project directory. Once you have installed this softwar
 
 1. Navigate to the client directory by running:
 
-```bash
-cd react
-```
+    ```bash
+    cd react
+    ```
 
 2. The application code is dependent on a number of `npm` packages. To install them, run:
 
-```
-npm i
-```
+    ```
+    npm i
+    ```
 
 3. Next, setup your `.env` file, by running:
 
-```bash
-cp .env.example .env
-```
+    ```bash
+    cp .env.example .env
+    ```
 
 4. Finally, begin your frontend developer server, by running:
 
-```bash
-npm run dev
-```
+    ```bash
+    npm run dev
+    ```
 
 The application should be accessible at `http://localhost:3000`.

@@ -93,13 +93,21 @@ Begin at the root of the project directory. Once you have installed this softwar
     php artisan key:generate
     ```
 
-4. Finally, begin your backend developer server, by running:
+4. Perform database migrations, by running:
+
+    ```bash
+    php artisan migrate
+    ```
+
+    When prompted to create the SQLite database, select `Yes`.
+
+5. Finally, begin your backend developer server, by running:
 
     ```bash
     php artisan serve
     ```
 
-The application should be accessible at `http://localhost:8000`.
+    The application should be accessible at `http://localhost:8000`.
 
 ### Frontend Server Setup
 
@@ -133,4 +141,4 @@ Begin at the root of the project directory. Once you have installed this softwar
     npm run dev
     ```
 
-The application should be accessible at `http://localhost:3000`.
+    The application should be accessible at `http://localhost:3000`.

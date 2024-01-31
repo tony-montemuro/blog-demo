@@ -37,13 +37,47 @@ export default function Blogs() {
       });
   };
 
+  const timeAgo = date => {
+    const addS = n => n > 1 ? "s" : "";
+
+    date = new Date(date);
+    const seconds = Math.floor((new Date() - date) / 1000);
+    let interval = seconds / 31557600; // converts seconds to years
+
+    if (interval > 1) {
+      const years = Math.floor(interval);
+      return `${ years } year${ addS(years) } ago`;
+    }
+    interval = seconds / 2592000; // converts seconds to months
+    if (interval > 1) {
+      const months = Math.floor(interval);
+      return `${ months } month${ addS(months) } ago`;
+    }
+    interval = seconds / 86400; // converts seconds to days
+    if (interval > 1) {
+      const days = Math.floor(interval);
+      return `${ days } day${ addS(days) } ago`;
+    }
+    interval = seconds / 3600; // converts seconds to hours
+    if (interval > 1) {
+      const hours = Math.floor(interval);
+      return `${ hours } hour${ addS(hours) } ago`;
+    }
+    interval = seconds / 60; // converts seconds to minutes
+    if (interval > 1) {
+      const minutes = Math.floor(interval);
+      return `${ minutes } minute${ addS(minutes) } ago`;
+    }
+    return `${ seconds } second${ addS(seconds) } ago`;
+  };
+
   useEffect(() => {
     getBlogs();
   }, []);
 
   return (
     <div id="blogs">
-      <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+      <div style={ { display: "flex", justifyContent: "space-between", alignItems: "center" } }>
         <div id="blogs-title">
           <h1>Blogs</h1>
           <p>Create and view markdown blogs!</p>
@@ -75,7 +109,7 @@ export default function Blogs() {
                     <tr id="row" key={ blog.id } onClick={() => navigate(`/blogs/${ blog.id }`)}>
                       <td>{ blog.title }</td>
                       <td>{ blog.user.name }</td>
-                      <td>{ blog.created_at }</td>
+                      <td>{ timeAgo(blog.created_at) }</td>
                       <td>
                         { user?.id === blog.user.id &&
                           <button onClick={ (e) => onDelete(e, blog.id) } className="btn-delete">Delete</button>
